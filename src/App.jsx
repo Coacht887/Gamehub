@@ -5,6 +5,7 @@ import Header from './components/header.jsx';
 import GameCard from './components/GameCard.jsx';
 import Navigation from './components/Navigation';
 import GameStats from './components/GameStats';
+import GameFilters from './components/GameFilters';
 
 function App() {
   const giochi = getAllGames();
@@ -13,11 +14,47 @@ function App() {
   // Stato per tab attivo
   const [activeTab, setActiveTab] = useState('tutti');
 
-  // Filtro giochi in base al tab
-  const giochiFiltrati = giochi.filter((game) => {
-    if (activeTab === 'tutti') return true;
-    return game.stato.toLowerCase() === activeTab;
+  // Stato filtri
+  const [filtri, setFiltri] = useState({
+    genere: '',
+    piattaforma: '',
+    votoMinimo: 1,
+    soloWishlist: false
   });
+
+  // Filtra giochi in base a tab + filtri
+  const giochiFiltrati = giochi.filter((game) => {
+    // Filtra per stato/tab
+    if (activeTab !== 'tutti' && game.stato.toLowerCase() !== activeTab) {
+      return false;
+    }
+
+    // Filtra per genere
+    if (filtri.genere && game.genere !== filtri.genere) {
+      return false;
+    }
+
+    // Filtra per piattaforma
+    if (filtri.piattaforma && game.piattaforma !== filtri.piattaforma) {
+      return false;
+    }
+
+    // Filtra per voto minimo
+    if (game.voto < filtri.votoMinimo) {
+      return false;
+    }
+
+    // Filtra per wishlist
+    if (filtri.soloWishlist && !game.wishlist) {
+      return false;
+    }
+
+    return true;
+  });
+
+  // Ricava generi e piattaforme unici per il filtro
+  const generiUnici = [...new Set(giochi.map(g => g.genere))];
+  const piattaformeUniche = [...new Set(giochi.map(g => g.piattaforma))];
 
   return (
     <>
@@ -25,13 +62,22 @@ function App() {
 
       <h1 style={{ textAlign: 'center' }}>La mia libreria giochi</h1>
 
-      {/* Tabs */}
+      {/* Tabs di navigazione */}
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <GameStats giochi={giochi} />  {/* <=== */}
+      {/* Filtro */}
+      <GameFilters
+        generi={generiUnici}
+        piattaforme={piattaformeUniche}
+        filtri={filtri}
+        setFiltri={setFiltri}
+      />
+
+      {/* Statistiche */}
+      <GameStats giochi={giochi} />
 
       {/* Lista giochi filtrati */}
-      <div className="games-container">
+      <div className="game-list">
         {giochiFiltrati.map((game) => (
           <GameCard
             key={game.id}
@@ -53,3 +99,4 @@ function App() {
 }
 
 export default App;
+

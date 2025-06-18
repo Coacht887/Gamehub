@@ -1,22 +1,36 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;}
+
+  .game-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
 /* Contenitore principale della card */
 .game-card {
-  width: 300px;
+ 
   border: 1px solid #ccc;
   border-radius: 10px;
-  overflow: hidden;
+  position: relative;
   background-color: #f156c3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
   font-family: sans-serif;
   color: #333;
+
+
 }
 
 /* Immagine di copertina */
 .game-card img {
-  width: 300px;
-  height: 400px;
+  width: 50%;
+  height: 50%;
   object-fit: cover;
-  display: block;
+ 
 }
 
 /* Informazioni testuali */
@@ -84,4 +98,15 @@
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid #ddd;
+}
+
+@media (min-width: 600px) {
+  .game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .game-list {
+    grid-template-columns: repeat(3, 1fr); /* opzionale: 3 colonne su desktop ampio */
+  }
 }

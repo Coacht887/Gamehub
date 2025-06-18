@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './GameStats.css'
 const GameStats = ({ giochi }) => {
   // Filtra giochi completati o in corso per ore totali giocate
   const giochiConOre = giochi.filter(game =>

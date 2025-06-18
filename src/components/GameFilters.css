@@ -1,0 +1,25 @@
+.game-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: #2a2a3b;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.game-filters select,
+.game-filters input[type="range"],
+.game-filters input[type="text"] {
+  background: #444;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+}
+
+.game-filters label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}

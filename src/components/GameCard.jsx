@@ -36,6 +36,8 @@ const GameCard = ({
     }
   };
 
+  
+
   return (
     <div className="game-card" onClick={() => setMostraDettagli(prev => !prev)}>
       <img src={cover} alt={titolo} />
@@ -59,6 +61,8 @@ const GameCard = ({
         </div>
       )}
     </div>
+
+
   );
 };
 
