@@ -3,7 +3,7 @@ import React from 'react';
 import './Navigation.css';
 
 const tabs = [
-  
+  { label: 'Tutti', value: 'tutti' },
   { label: 'Completati', value: 'completato' },
   { label: 'In Corso', value: 'in-corso' },
   { label: 'Wishlist', value: 'wishlist' },

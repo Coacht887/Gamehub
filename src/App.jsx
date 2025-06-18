@@ -4,6 +4,7 @@ import { getAllGames } from './data/mockData.js';
 import Header from './components/header.jsx';
 import GameCard from './components/GameCard.jsx';
 import Navigation from './components/Navigation';
+import GameStats from './components/GameStats';
 
 function App() {
   const giochi = getAllGames();
@@ -26,6 +27,8 @@ function App() {
 
       {/* Tabs */}
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <GameStats giochi={giochi} />  {/* <=== */}
 
       {/* Lista giochi filtrati */}
       <div className="games-container">
