@@ -1,0 +1,32 @@
+.header-style {
+  background-color: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #00ffff;
+}
+title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.gamerTag {
+  color: #ff00ff;
+  text-shadow: 0 0 8px #ff00ff;
+  margin-left: 10px;
+}
+
+.counter-style {
+  background-color: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #00ffff;
+}
+
+.counter {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffff;
+}

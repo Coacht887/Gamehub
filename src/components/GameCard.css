@@ -1,0 +1,75 @@
+/* Contenitore principale della card */
+.game-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  font-family: sans-serif;
+}
+
+/* Immagine di copertina */
+.game-card img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Informazioni testuali */
+.game-card h2 {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.game-card p {
+  margin: 5px 10px;
+  font-size: 0.95rem;
+}
+
+/* Voto con colore dinamico */
+.vote {
+  font-weight: bold;
+}
+
+.vote.green {
+  color: #2ecc71; /* Verde */
+}
+
+.vote.yellow {
+  color: #f1c40f; /* Giallo */
+}
+
+.vote.red {
+  color: #e74c3c; /* Rosso */
+}
+
+/* Badge per lo stato */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 12px;
+  color: white;
+}
+
+.badge.completato {
+  background-color: #2ecc71;
+}
+
+.badge.in-corso {
+  background-color: #f1c40f;
+  color: #333;
+}
+
+.badge.wishlist {
+  background-color: #3498db;
+}
+
+.badge.abbandonato {
+  background-color: #7f8c8d;
+}
