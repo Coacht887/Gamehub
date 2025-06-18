@@ -1,21 +1,38 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import { getAllGames } from './data/mockData.js';
-import  Header  from './components/header.jsx';
+import Header from './components/header.jsx';
 import GameCard from './components/GameCard.jsx';
+import Navigation from './components/Navigation';
+
 function App() {
   const giochi = getAllGames();
-  const gamertag = "Alexandrus Bell"
+  const gamertag = "Alexandrus Bell";
+
+  // Stato per tab attivo
+  const [activeTab, setActiveTab] = useState('tutti');
+
+  // Filtro giochi in base al tab
+  const giochiFiltrati = giochi.filter((game) => {
+    if (activeTab === 'tutti') return true;
+    return game.stato.toLowerCase() === activeTab;
+  });
 
   return (
     <>
-    <Header gamerTag={gamertag} totalGames={giochi.length} />
+      <Header gamerTag={gamertag} totalGames={giochi.length} />
 
+      <h1 style={{ textAlign: 'center' }}>La mia libreria giochi</h1>
+
+      {/* Tabs */}
+      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {/* Lista giochi filtrati */}
       <div className="games-container">
-        {giochi.map((game) => (
+        {giochiFiltrati.map((game) => (
           <GameCard
             key={game.id}
-            cover={game.cover || game.coverImageUrl} // gestisce entrambi i nomi
+            cover={game.cover || game.coverImageUrl}
             titolo={game.titolo}
             genere={game.genere}
             piattaforma={game.piattaforma}
@@ -32,4 +49,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

@@ -4,10 +4,11 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #f156c3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
   font-family: sans-serif;
+  color: #333;
 }
 
 /* Immagine di copertina */
@@ -54,7 +55,7 @@
   font-size: 0.85rem;
   font-weight: bold;
   border-radius: 12px;
-  color: white;
+  color: rgb(182, 16, 16);
 }
 
 .badge.completato {
@@ -72,4 +73,15 @@
 
 .badge.abbandonato {
   background-color: #7f8c8d;
+}
+/* Hover effect per sollevare la card */
+.game-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.dettagli-extra {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
 }
